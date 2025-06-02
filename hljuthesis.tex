@@ -1,0 +1,266 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+%设置目录样式
+\usepackage{titletoc}
+\usepackage{titlesec}
+%插入图片
+\usepackage{graphicx}
+
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{listings}
+%设置页眉页脚
+\usepackage{fancyhdr}
+
+\usepackage{ragged2e} 
+%插入csv表格
+\usepackage{csvsimple}
+
+\usepackage{letterspace}
+\usepackage{indentfirst}
+%biblatex 管理参考文献
+\usepackage[style=gb7714-2015,gbstyle=false,gbalign=left,gbnamefmt=uppercase,backend=biber,isbn=false,doi=false,giveninits=true, url=false,sorting=none,maxnames=3,minnames=3]{biblatex}
+%引入格式配置
+\include{thesis}
+
+
+%论文基本信息
+\renewcommand\thesistitle{论文题目}
+\renewcommand\academy{学院}
+\renewcommand\stuname{姓名}
+\renewcommand\grade{年纪}
+\renewcommand\subject{专业}
+\renewcommand\stunumber{学号}
+\renewcommand\mentor{指导教师}
+\renewcommand\thesisdate{2025年\hspace{1em}6月\hspace{1em}1日}
+%引入bib文件
+\addbibresource{thesis.bib}
+
+\setlength{\parindent}{2em}
+\begin{document}
+%封面页
+\coverpage
+
+%罗马页码
+\pagenumbering{Roman}
+\fancyfoot[C]{\zihao{-5}\thepage}
+
+
+\section*{摘要}
+\addcontentsline{toc}{section}{摘要}
+本文件是黑龙江大学毕业论文的latex模板（非官方），所有格式均与word模板相同。
+本文也可视作一份latex的简要入门教程。
+\newline
+\newline
+\section*{关键字}
+Latex;毕业论文模板;黑龙江大学
+\newpage
+\section*{\bfseries Abstract}
+\addcontentsline{toc}{section}{\bfseries Abstract}
+This file is a latex template (unofficial) for Heilongjiang University graduation thesis.
+ All formats are the same as the word template.
+ The paper can also be regarded as a brief introductory tutorial on latex.
+\newline
+\newline
+\section*{\bfseries keyword}
+Latex;Graduation thesis template;Heilongjiang University
+\newpage
+\vspace{100pt}
+\tableofcontents
+\newpage
+\fancyhead[C]{\kaishu\fontsize{10.5pt}{0}\ziju{0.005}{\thesistitle}}
+\renewcommand{\headrulewidth}{0.5pt}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\specialsectionwithoutbold{前言}
+黑龙江大学长久以来仅提供word版本的毕业论文模板。由于word实在难用，特制作此latex版毕业论文模板
+
+\section{latex介绍}
+
+\subsection{latex}
+
+
+LaTeX（\LaTeX ，音译“拉泰赫”）是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TeX所提供的强大功能，能在几天、甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。
+
+\subsection{latex的优点}
+
+
+在论文写作方面相较于word，latex有更完善的功能支持。例如latex不需要手动维护公式编号，每当用户新增或删除了一个编号的公式，全文的公式编号会自动变更。latex使用。bib文件作为文献数据库管理参考文献，用户可以为参考文献起一个别名方便记忆，在生成参考文献表时，只会生成用户在正文中引用过的参考文献。相较于word，这一过程可以说是节约了大量手动删改参考文献的时间
+\newpage
+\section{latex基本语法}
+
+
+在使用latex模板进行写作时，并不要求写作者掌握复杂的latex技术，因此只简要介绍常用的latex语法.
+latex会忽略多余的空格或换行，无论用户输入多少个空格和换行只会生效一个例如|                                    |。
+如果确实想使用多个空格和换行，通过\textbf{\textbackslash space} 添加多个空格,通过\textbf{\textbackslash newline}添加换行。\newline
+相近的命令还有分段符\textbackslash par 分页符\textbackslash newpage等等
+latex使用\% 进行注释，\%后的内容会被latex忽略不进行排版%我是注释
+latex中所有命令以\textbackslash 开始，例如\LaTeX 。
+
+\subsection{latex引用参考文献}
+
+
+本模板使用biblatex管理参考文献，所有的参考文献被储存在.bib文件中.
+
+\subsubsection{如何创建自己的bib文件}
+
+在知网可以多选论文后导出参考文献，zotreo、endnote等参考文献管理软件也提供了类似的功能。值得注意的是，如果你使用不同的软件来生成bib文件，应当保证bib文件中不同条目的对应字段名相同并且与模板中使用的字段名相同。
+
+\subsubsection{如何引用参考文献}
+使用\textbackslash cite\{"别名"\}来引用参考文献。
+
+\subsection{latex常用希腊文符号表}
+
+\begin{table}[H]
+    \centering
+    \caption{希腊文对照表}
+    \label{希腊文对照表}
+    \csvautobooktabular{sym.csv}
+\end{table}
+
+
+\subsection{常见的顶标符号}
+\begin{equation}
+ \hat{a},\vec{a},\dot{a},\ddot{a},\bar{a}
+\end{equation}
+
+\newpage
+\section{latex编写公式}
+
+\subsection{简单公式}
+作为最基础的，使用\$your equation\$来插入行内公式,例如$E=mc^2$.顾名思义，行内公式在行内排版，不产生换行和公式编号
+使用\$\$(your equation)\$\$来插入行间公式
+$$
+E=mc^2
+$$
+行间公式产生换行，并居中排版。
+使用$\^{}$来输入上标，使用 $\_{}$ 来输入下标，如果上标或下标超过一个字符，使用\{\}包裹它,否则第一个字符后的内容会被当成单独的内容。例如
+$$
+R_ij^2\\
+R_{ij}^2
+$$
+
+\subsection{带环境的复杂公式}
+
+\subsubsection{公式环境}
+环境是使用latex编写公式时要了解的重要概念，环境决定了论文中输入的公式将被如何排版。amsmath宏包中提供了大量可用的环境，其中常用的环境有\textbf{equation}，\textbf{align}，\textbf{array}等。使用\textbackslash begin{(环境)}(公式)\textbackslash end{(环境)}来开启或结束一个环境
+equation 通常表示单一的一条公式，有公式编号
+\begin{equation}
+  E=mc^2
+\end{equation}
+gather 最基础的多行公式环境。居中排版,使用\textbackslash 进行换行,公式单独标号
+\begin{gather}
+  a+b=c\\
+  c+a=2b\\
+  c-b=2
+\end{gather}
+align 和gather基本相同，但可以使用$\&$控制对齐，见如下例子，在=处对齐
+$$
+\begin{aligned}
+    a+b&=c\\
+  c+a&=2b\\
+  c-b&=2
+\end{aligned}
+$$
+
+\subsubsection{矩阵环境}
+使用\textbf{matrix},\textbf{pmatrix},\textbf{vmatrix}等输入矩阵
+matrix
+$$
+\begin{matrix}
+1&2&3\\
+1&2&3\\
+1&2&3\\
+\end{matrix}
+$$
+pmatrix
+$$
+\begin{pmatrix}
+1&2&3\\
+1&2&3\\
+1&2&3\\
+\end{pmatrix}
+$$
+vmatrix
+$$
+\begin{vmatrix}
+1&2&3\\
+1&2&3\\
+1&2&3\\
+\end{vmatrix}
+$$
+Vmatrix
+$$
+\begin{Vmatrix}
+1&2&3\\
+1&2&3\\
+1&2&3\\
+\end{Vmatrix}
+$$
+bmatrix
+$$
+\begin{bmatrix}
+1&2&3\\
+1&2&3\\
+1&2&3\\
+\end{bmatrix}
+$$
+Bmatrix
+$$
+\begin{Bmatrix}
+1&2&3\\
+1&2&3\\
+1&2&3\\
+\end{Bmatrix}
+$$
+
+
+使用array可以进行复杂的排版控制，{}的字符控制每一列的对齐，其中l代表左对齐，c代表中对齐，r代表右对齐，添加|来在相应的位置添加竖向分割线,在公式中使用 \textbackslash hline来添加横向分割线
+$$
+\begin{array}{l|cl}
+144444&2&33333\\
+\hline
+1&2&3\\
+1&2&3\\
+\end{array}
+$$
+环境也可嵌套使用来实现复杂排版，如下，多条公式，但只产生一个编号
+array
+\begin{equation}
+\label{公式}
+  \begin{array}{cc}
+  a+b&=c\\
+  c+a&=2b\\
+  c-b&=2
+  \end{array}
+\end{equation}
+使用\text{}在公式中用正文字体排版
+$$
+\text{some words}\\
+some words
+$$
+在公式中通过\textbackslash label\{标签\}为公式添加标签，后续可以通过标签来引用公式\textbackslash ref\{公式\}
+在此处引用一些参考文献\cite{9787115534408000,HLKX202323022,HLKX202323022,HLKX202323022}\\
+引用单篇参考文献\cite{SSCG202312007},latex会自动对参考文献进行排序，当正文中的引用发生变化时，参考文献表中的内容也会发生相应的变化。
+
+引用更多参考文献\cite{XJAZ243D228EAB76061B96C07507F171A5C8,SJPDAC8FDAF91C03ADB36A20138EEB8A381F,JYRJ202212005,ACZJ201302092,BJXB201303037,GZDN201104031,1012028643.nh,JYKQ201801007,JYKQ201206034,KJCB201009091,JYRJ201205063,SJPDAC8FDAF91C03ADB36A20138EEB8A381F,UGGA201208001025,BJXB201303037,ACZJ201302092,SJPDAC8FDAF91C03ADB36A20138EEB8A381F,KJXX201011361,JYRJ202212005,HLKX202323022}.
+\newpage
+\section*{结论}
+\addcontentsline{toc}{section}{结论}
+本文件可作为黑龙江大学毕业论文latex模板使用，同时也是一份latex的简要教程。希望对使用者能够有所帮助。
+\newpage
+\addcontentsline{toc}{section}{参考文献}
+\printbibliography
+
+\newpage
+\section*{致谢}
+\addcontentsline{toc}{section}{致谢}
+感谢指导教师在我完成毕业论文期间的悉心教导。
+
+\end{document}

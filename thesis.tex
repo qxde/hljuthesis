@@ -1,0 +1,205 @@
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+
+%封面字段，使用recomand重定义
+\newcommand\thesistitle{(本模板所有格式、字体字号均已设置完毕，无须更改      黑体小二号字)}
+\newcommand\academy{（黑体三号字）}
+\newcommand\stuname{（黑体三号字）}
+\newcommand\grade{（黑体三号字）}
+\newcommand\subject{（黑体三号字）}
+\newcommand\stunumber{（黑体三号字）}
+\newcommand\mentor{（黑体三号字）}
+\newcommand\thesisdate{2025年\hspace{1em}2月\hspace{1em}3日}
+
+\geometry{
+	a4paper,
+	left=23mm,
+	right=28mm,
+	top=28mm,
+	bottom=23mm
+}
+
+%设置参考问格式
+\setlength{\biblabelsep}{0 mm}
+\renewcommand{\baselinestretch}{1.5}
+\AtBeginBibliography{
+	\fontsize{10.5pt}{15.75pt}\rmfamily
+}
+
+%设置页眉页脚
+\pagestyle{fancy}
+\setlength{\topmargin}{0pt}
+\setlength{\voffset}{-1cm}
+\setlength{\hoffset}{0.5cm}
+\setlength{\footskip}{0pt}
+%正文前去除页眉横线，清空页脚
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{}
+\fancyhead[L]{}
+\fancyhead[R]{}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\sanhao}{\fontsize{16pt}{24}\selectfont}
+
+\usepackage{pifont}
+
+%Word在章节编号里用的分隔符是方形点，自己定义一个
+\newcommand\mydot{\hspace{0.1em}{\heiti\fontsize{2pt}{0}\ding{110}}\hspace{0.3em}}
+
+
+
+
+%定义目录样式
+\renewcommand{\contentsname}{\heiti\zihao{-2}目录}
+% 定义章节条目格式
+\titlecontents{chapter}% 作用于章级别
+[0em]% 左边距
+{\vspace*{1cm}\bfseries}% 章节前的垂直空间和字体加粗
+{\thecontentslabel\enspace}% 编号后的格式
+{}% 对于没有编号的部分
+{\hfill\contentspage}[\vspace*{2mm}]% 页码前的填充和章节后垂直空间
+
+% 定义节条目格式
+\titlecontents{section}% 作用于节级别
+[0em]% 左边距
+{\heiti\zihao{-4}}% 章节前的垂直空间和字体加粗
+{\thecontentslabel\mydot\enspace}% 编号后的格式
+{}% 对于没有编号的部分
+{\normalfont\titlerule*[3pt]{.}\zihao{-4}\hspace{-0.8em}\contentspage}% 使用点线连接标题和页码
+
+% 定义小节条目格式
+\titlecontents{subsection}% 作用于小节级别
+[2em]% 缩进量，相对于节的额外缩进
+{\normalfont}% 字体设置
+{\thecontentslabel\enspace}% 编号后的格式
+{}% 对于没有编号的部分
+{\normalfont\titlerule*[3pt]{.}\zihao{-4}\hspace{-0.8em}\contentspage}% 使用点线连接标题和页码
+
+\titlecontents{subsubsection}% 作用于小节级别
+[4em]% 缩进量，相对于节的额外缩进
+{\normalfont}% 字体设置
+{\thecontentslabel\enspace}% 编号后的格式
+{}% 对于没有编号的部分
+{\normalfont\titlerule*[3pt]{.}\zihao{-4}\hspace{-0.8em}\contentspage}% 使用点线连接标题和页码
+
+\newcommand{\specialsectionwithoutbold}[1]{%
+	\titlecontents{section}[0em] % 设置特定章节的格式
+	{\heiti\zihao{-4}}
+	{\thecontentslabel.\enspace}% 编号后的格式
+	{}% 对于没有编号的部分
+	{\normalfont\titlerule*[3pt]{.}\zihao{-4}\hspace{-0.8em}\contentspage}% 使用点线连接标题和页码
+
+	\section*{#1}
+	\addcontentsline{toc}{section}{\newline #1}
+
+	\titlecontents{section}% 作用于节级别
+	[0em]% 左边距
+	{\heiti\zihao{-4}}% 章节前的垂直空间和字体加粗
+	{\thecontentslabel\mydot\enspace}% 编号后的格式
+	{}% 对于没有编号的部分
+	{\normalfont\titlerule*[3pt]{.}\zihao{-4}\hspace{-0.8em}\contentspage}% 使用点线连接标题和页码
+
+}
+
+% 设置 section 编号格式
+\renewcommand{\thesection}{\arabic{section}}
+
+% 设置 subsection 编号格式
+\renewcommand{\thesubsection}{\thesection\mydot\arabic{subsection}}
+
+% 设置 subsubsection 编号格式
+\renewcommand{\thesubsubsection}{\thesubsection\mydot\arabic{subsubsection}}
+
+\titleformat{\section} % 作用于 section 级别
+[block] % 标题布局，可选 hang, block, display 等
+{\centering\heiti\zihao{-2}} % 格式化命令（如字体系列和大小）
+{\heiti\thesection\mydot} % 标签格式
+{0.5em} % 标签与标题文本之间的水平距离
+{\indent} % 在标签之后、标题文本之前执行的代码
+
+% 调整 section 的前后间距
+\titlespacing*{\section} % 作用于 section 级别
+{2em} % 左边距
+{0.5em} % 标题前的垂直空间
+{1em} % 标题后的垂直空间
+
+\titleformat{\subsection} % 作用于 section 级别
+[block] % 标题布局，可选 hang, block, display 等
+{\heiti\zihao{-3}} % 格式化命令（如字体系列和大小）
+{\heiti\thesubsection } % 标签格式
+{0.5em} % 标签与标题文本之间的水平距离
+{\indent} % 在标签之后、标题文本之前执行的代码
+
+% 调整 section 的前后间距
+\titlespacing*{\subsection} % 作用于 section 级别
+{2em} % 左边距
+{0.5em} % 标题前的垂直空间
+{1em} % 标题后的垂直空间
+
+\titleformat{\subsubsection} % 作用于 section 级别
+[block] % 标题布局，可选 hang, block, display 等
+{\heiti\zihao{-4}} % 格式化命令（如字体系列和大小）
+{\heiti\thesubsubsection} % 标签格式
+{0.5em} % 标签与标题文本之间的水平距离
+{\indent} % 在标签之后、标题文本之前执行的代码
+
+% 调整 section 的前后间距
+\titlespacing*{\subsubsection} % 作用于 section 级别
+{2em} % 左边距
+{0.5em} % 标题前的垂直空间
+{1em} % 标题后的垂直空间
+
+
+
+
+%封面
+%word与latex算法不同，具体数值仅供参考，以形似为标准（看着像）
+\newcommand{\coverpage}{
+%封面图
+	\begin{figure}[!h]
+		\centering
+		\resizebox{10.88cm}{3.15cm}{\includegraphics{cover_image.jpg}}
+	\end{figure}
+
+	\begin{center}
+		\heiti\fontsize{28}{42}\ziju{0.22}{本科生毕业论文}
+	\end{center}
+	\vspace{30pt}
+	\setlength{\cmidrulewidth}{0.5pt}
+%封面表
+	\begin{table}[h]
+		\hspace{0.3em}
+		\renewcommand{\baselinestretch}{1.4}
+		\renewcommand{\arraystretch}{1.82}
+		{
+			\begin{tabularx}{\textwidth} {
+					>{\arraybackslash\hsize=3.5cm}X
+					>{\arraybackslash\hsize=10.5cm}X
+				}
+				\raisebox{-0pt}{\noindent\arraybackslash\heiti\zihao{-2}{论文题目：}} & \noindent\arraybackslash\heiti\zihao{-2}{\thesistitle}                                      \\
+				\cmidrule{2-2}
+				\noindent\arraybackslash\heiti\zihao{3}{学\hspace{2em}院：}         & \noindent\arraybackslash\heiti\zihao{3}{\academy}                                           \\
+				\cmidrule{2-2}
+				\noindent\arraybackslash\heiti\zihao{3}{年\hspace{2em}级：}         & \noindent\arraybackslash\fontspec[BoldFont={SimHei}]{SimHei}\heiti\sanhao{\grade}           \\
+				\cmidrule{2-2}
+				\noindent\arraybackslash\heiti\zihao{3}{专\hspace{2em}业：}         & \noindent\arraybackslash\heiti\zihao{3}{\subject}                                           \\
+				\cmidrule{2-2}
+				\noindent\arraybackslash\heiti\zihao{3}{姓\hspace{2em}名：}         & \noindent\arraybackslash\heiti\zihao{3}{\stuname}                                           \\
+				\cmidrule{2-2}
+				\noindent\arraybackslash\heiti\zihao{3}{学\hspace{2em}号：}         & \noindent\arraybackslash\heiti\fontspec[BoldFont={SimHei}]{SimHei}\heiti\sanhao{\stunumber} \\
+				\cmidrule{2-2}
+				\noindent\arraybackslash\heiti\zihao{3}{指导教师：}                   & \noindent\arraybackslash\heiti\zihao{3}{\mentor}                                            \\
+				\cmidrule{2-2}
+			\end{tabularx}
+		}
+	\end{table}
+
+	\vspace{42 pt}
+%日期：年月日
+	\begin{center}
+		\fontspec[BoldFont={SimHei}]{SimHei}\heiti\sanhao{\thesisdate}
+	\end{center}
+	\newpage
+	\songti\zihao{-4}
+}
+
